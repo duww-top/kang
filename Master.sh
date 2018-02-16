@@ -6,7 +6,7 @@ L="/home/eins"
 if [ ! -d "$L" ];
 then
 mkdir $L;
-chmod 755 $L;、
+chmod 755 $L;
 fi
 
 cd $L
