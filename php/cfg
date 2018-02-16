@@ -1,7 +1,0 @@
-repo=https://raw.githubusercontent.com/EVECloud/kws/master/Centos-6.repo
-epel=http://mirrors.aliyun.com/repo/epel-6.repo
-phpurl=http://origin.evec.cc/github/kangle/php
-ks=*/1 * * * * root /vhs/kangle/bin/kangle
-ms=*/1 * * * * root /etc/init.d/mysqld start
-mysqlconfig=http://origin.evec.cc/github/kangle/my.cnf
-
