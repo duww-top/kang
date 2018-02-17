@@ -15,6 +15,6 @@ wget -q $links/cfg -O $L/cfg
 wget -q $links/sys.sh -O $L/sys.sh
 chmod 777 $L/sys.sh
 clear
-echo=—"KangleWebServer Is installing!"
-echo=—"Please wait!"
+echo="KangleWebServer Is installing!"
+echo="Please wait!"
 bash $L/sys.sh
