@@ -11,7 +11,6 @@ fi
 
 cd $L
 rm -rf $L/config
-wget -P $L http://origin.evec.cc/github/kangle/config
 wget -q $links/cfg -O $files/cfg
 wget -q $links/sys.sh -O $L/sys.sh
 chmod 777 $L/sys.sh
