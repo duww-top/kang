@@ -1,5 +1,5 @@
 #!/bin/bash
-source $L/config
+source $L/cfg
 #变量
 
 #环境检测
