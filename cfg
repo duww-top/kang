@@ -1,3 +1,4 @@
+L=/home/eins
 repo=https://raw.githubusercontent.com/EVECloud/kws/master/Centos-6.repo
 epel=http://mirrors.aliyun.com/repo/epel-6.repo
 phpurl=http://origin.evec.cc/github/kangle/php
