@@ -1,5 +1,4 @@
 #!/bin/bash
-wget -P $L/config http://origin.evec.cc/github/kangle/config
 source $L/config
 #变量
 
