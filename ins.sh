@@ -1,5 +1,5 @@
 #!/bin/bash
-source $L/config
+source $L/cfg
 ###########################################################################3
 #开始调用小樱script
 wget $kangleins -O e.sh;sh e.sh /vhs/kangle #安装Kangle
