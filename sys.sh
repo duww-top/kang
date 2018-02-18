@@ -45,11 +45,4 @@ mv ins.sh ins.sh.ebak
 wget $L/ins.sh
 chmod 777 ins.sh
 bash ins.sh
-
-
-
-
-
-
-
-
+exit
