@@ -1,24 +1,6 @@
 #!/bin/bash
 source /home/eins/cfg
 #变量
-
-#环境检测
-cos5="CentOS release 5"
-cos6="CentOS release 6"
-OS5=`cat /etc/redhat-release |grep "$cos5" -o` #读取系统版本
-OS6=`cat /etc/redhat-release |grep "$cos6" -o` #读取系统版本
-case $OS5 in
-   $cos5) P5="\033[32m5\033[0m";; #完全符合
-   *) P5="\033[30m5\033[0m";; #特征符合
-esac
-case $OS6 in
-   $cos6) P6="\033[32m6\033[0m";; #完全符合
-   *) P6="\033[30m6\033[0m";;  #特征符合
-esac
-if [ "$cos5" = "$OS5" ] | [ "$OS6" = "$cos6" ]; #校对系统版本
-then
-clear #清屏
-
 #main
 #yum与epel配置
 yum install wget -y #安装wget，防止用curl导致错误
