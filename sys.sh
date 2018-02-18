@@ -5,10 +5,13 @@ source /home/eins/cfg
 #yum与epel配置
 yum install wget -y #安装wget，防止用curl导致错误
 yum install yum-fastestmirror -y #自动寻找最快的mirrors
+yum -y install epel-release
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak #备份yum源
-rpm -e epel-release #卸载旧epel（如果有，以后可改为自动判断）
-wget -O /etc/yum.repos.d/CentOS-Base.repo $yumo #下载aliyun yum源
-wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-6.repo #下载aliyun epel源
+wget http://github.itzmx.com/1265578519/mirrors/master/CentOS/CentOS6-Base-itzmx.repo -O /etc/yum.repos.d/CentOS6-Base-itzmx.repo
+rm -rf /etc/yum.repos.d/epel.repo
+rm -rf /etc/yum.repos.d/epel-testing.repo
+wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel.repo -O /etc/yum.repos.d/epel.repo
+wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel-testing.repo -O /etc/yum.repos.d/epel-testing.repo
 yum clean all #清除所有缓存
 yum makecache #生成缓存
 echo "timeout=120" >> /etc/yum.conf #防止自动退出
