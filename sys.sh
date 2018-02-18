@@ -8,7 +8,7 @@ yum install yum-fastestmirror -y #自动寻找最快的mirrors
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak #备份yum源
 rpm -e epel-release #卸载旧epel（如果有，以后可改为自动判断）
 wget -O /etc/yum.repos.d/CentOS-Base.repo $yumo #下载aliyun yum源
-wget -O /etc/yum.repos.d/ $epel #下载aliyun epel源
+wget -P /etc/yum.repos.d/ $epel #下载aliyun epel源
 yum clean all #清除所有缓存
 yum makecache #生成缓存
 echo "timeout=120" >> /etc/yum.conf #防止自动退出
