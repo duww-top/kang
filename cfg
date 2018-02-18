@@ -1,6 +1,7 @@
 L="/home/eins"
 repo="https://raw.githubusercontent.com/EVECloud/kws/master/Centos-6.repo"
 epel="http://mirrors.aliyun.com/repo/epel-6.repo"
+ins="https://raw.githubusercontent.com/EVECloud/kws/master/ins.sh"
 phpurl="http://origin.evec.cc/github/kangle/php"
 ks="*/1 * * * * root /vhs/kangle/bin/kangle"
 ms="*/1 * * * * root /etc/init.d/mysqld start"
