@@ -23,6 +23,6 @@ echo "fs.file-max = 6553560" >> /etc/sysctl.conf
 
 #Install Start!!
 cd /home/eins/
-wget $ins/ins.sh
+wget $ins
 chmod 777 ins.sh
 bash ins.sh
