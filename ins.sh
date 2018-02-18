@@ -31,7 +31,7 @@ chkconfig --level 2345 memcached on
 #优化mysql
 yum -y install mysql mysql-server
 rm -rf /etc/my.cnf
-wget $mysqlconig
+wget $mysqlconig -O $L/MY.cnf
 mv my.cnf /etc/my.cnf
 service mysqld restart
 #安装各版本php
