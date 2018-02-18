@@ -1,5 +1,5 @@
 #!/bin/bash
-source $L/cfg
+source /home/eins/cfg
 ###########################################################################3
 #开始调用小樱script
 wget $kangleins -O e.sh;sh e.sh /vhs/kangle #安装Kangle
@@ -77,4 +77,3 @@ echo -e "$ks" >> /etc/crontab
 echo -e "$ms" >> /etc/crontab
 /etc/init.d/crond restart
 #
-
