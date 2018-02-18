@@ -1,5 +1,5 @@
 #!/bin/bash
-source $L/cfg
+source /home/eins/cfg
 #变量
 
 #环境检测
