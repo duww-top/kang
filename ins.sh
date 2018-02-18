@@ -41,27 +41,27 @@ yum -y install libtool-ltdl libtool-ltdl-devel
 #
 wget -c $phpurl/tpl_php5217.tar.gz -O tpl_php5217.tar.gz
 tar xzf tpl_php5217.tar.gz
-mv tpl_php5217 /vhs/kangle/ext/tpl_php52
+mv tpl_php5217 /vhs/kangle/ext
 #
 wget -c $phpurl/tpl_php5445.tar.gz -O tpl_php5445.tar.gz
 tar xzf tpl_php5445.tar.gz
-mv tpl_php5445 /vhs/kangle/ext/tpl_php54
+mv tpl_php5445 /vhs/kangle/ext
 #
 wget -c $phpurl/tpl_php5538.tar.gz -O tpl_php5538.tar.gz
 tar xzf tpl_php5538.tar.gz
-mv tpl_php5538 /vhs/kangle/ext/tpl_php55
+mv tpl_php5538 /vhs/kangle/ext
 #
 wget -c $phpurl/tpl_php7027.tar.gz -O tpl_php7027.tar.gz
 tar xzf tpl_php7027.tar.gz
-mv tpl_php7027 /vhs/kangle/ext/tpl_php70
+mv tpl_php7027 /vhs/kangle/ext
 #
 wget -c $phpurl/tpl_php7113.tar.gz -O tpl_php7113.tar.gz
 tar xzf tpl_php7113.tar.gz
-mv tpl_php7113 /vhs/kangle/ext/tpl_php71
+mv tpl_php7113 /vhs/kangle/ext
 #
 wget -c $phpurl/tpl_php721.tar.gz -O tpl_php721.tar.gz
 tar xzf tpl_php721.tar.gz
-mv tpl_php721 /vhs/kangle/ext/tpl_php72
+mv tpl_php721 /vhs/kangle/ext
 rm -rf /tmp/*
 /vhs/kangle/bin/kangle -r
 ###########################################################################
@@ -72,12 +72,12 @@ yum -y install vixie-cron
 yum -y install crontabs
 service crond start
 chkconfig --level 345 crond on
-echo -e "$ks" >> /etc/crontab
-echo -e "$ms" >> /etc/crontab
+echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
+echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
 /etc/init.d/crond restart
 fi
-echo -e "$ks" >> /etc/crontab
-echo -e "$ms" >> /etc/crontab
+echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
+echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
 /etc/init.d/crond restart
 #
 rm -rf /home/eins
