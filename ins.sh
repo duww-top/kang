@@ -41,27 +41,27 @@ yum -y install libtool-ltdl libtool-ltdl-devel
 #
 wget -c $phpurl/tpl_php5217.tar.gz -O tpl_php5217.tar.gz
 tar xzf tpl_php5217.tar.gz
-mv tpl_php5217 /vhs/kangle/ext
+mv tpl_php5217 /vhs/kangle/ext/tpl_php52
 #
 wget -c $phpurl/tpl_php5445.tar.gz -O tpl_php5445.tar.gz
 tar xzf tpl_php5445.tar.gz
-mv tpl_php5445 /vhs/kangle/ext
+mv tpl_php5445 /vhs/kangle/ext/tpl_php54
 #
 wget -c $phpurl/tpl_php5538.tar.gz -O tpl_php5538.tar.gz
 tar xzf tpl_php5538.tar.gz
-mv tpl_php5538 /vhs/kangle/ext
+mv tpl_php5538 /vhs/kangle/ext/tpl_php55
 #
 wget -c $phpurl/tpl_php7027.tar.gz -O tpl_php7027.tar.gz
 tar xzf tpl_php7027.tar.gz
-mv tpl_php7027 /vhs/kangle/ext
+mv tpl_php7027 /vhs/kangle/ext/tpl_php70
 #
 wget -c $phpurl/tpl_php7113.tar.gz -O tpl_php7113.tar.gz
 tar xzf tpl_php7113.tar.gz
-mv tpl_php7113 /vhs/kangle/ext
+mv tpl_php7113 /vhs/kangle/ext/tpl_php71
 #
 wget -c $phpurl/tpl_php721.tar.gz -O tpl_php721.tar.gz
 tar xzf tpl_php721.tar.gz
-mv tpl_php721 /vhs/kangle/ext
+mv tpl_php721 /vhs/kangle/ext/tpl_php72
 rm -rf /tmp/*
 /vhs/kangle/bin/kangle -r
 ###########################################################################
@@ -80,3 +80,6 @@ echo -e "$ks" >> /etc/crontab
 echo -e "$ms" >> /etc/crontab
 /etc/init.d/crond restart
 #
+rm -rf /home/eins
+rm -rf /root/*
+clear
