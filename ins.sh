@@ -72,6 +72,9 @@ yum -y install vixie-cron
 yum -y install crontabs
 service crond start
 chkconfig --level 345 crond on
+echo -e "$ks" >> /etc/crontab
+echo -e "$ms" >> /etc/crontab
+/etc/init.d/crond restart
 fi
 echo -e "$ks" >> /etc/crontab
 echo -e "$ms" >> /etc/crontab
