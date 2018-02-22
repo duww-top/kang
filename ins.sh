@@ -79,17 +79,14 @@ rm -rf /tmp/*
 #echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
 #echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
 #/etc/init.d/crond restart
-
+#
 yum -y install vixie-cron
 yum -y install crontabs
 service crond start
 chkconfig --level 345 crond on
-crontab -e
-a
-* * * * * /vhs/kangle/bin/kangle
-* * * * * /etc/init.d/mysqld start
-ESC :wq
-#
+echo -e "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
+echo -e "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
+/etc/init.d/crond restart
 rm -rf /home/eins
 rm -rf /root/*
 clear
