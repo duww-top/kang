@@ -66,19 +66,29 @@ rm -rf /tmp/*
 /vhs/kangle/bin/kangle -r
 ###########################################################################
 #ks ms守护进程
-if [ ! -d "/etc/crontab" ];
-then
+#if [ ! -d "/etc/crontab" ];
+#then
+#yum -y install vixie-cron
+#yum -y install crontabs
+#service crond start
+#chkconfig --level 345 crond on
+#echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
+#echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
+#/etc/init.d/crond restart
+#fi
+#echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
+#echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
+#/etc/init.d/crond restart
+
 yum -y install vixie-cron
 yum -y install crontabs
 service crond start
 chkconfig --level 345 crond on
-echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
-echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
-/etc/init.d/crond restart
-fi
-echo "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
-echo "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
-/etc/init.d/crond restart
+crontab -e
+a
+* * * * * /vhs/kangle/bin/kangle
+* * * * * /etc/init.d/mysqld start
+ESC :wq
 #
 rm -rf /home/eins
 rm -rf /root/*
