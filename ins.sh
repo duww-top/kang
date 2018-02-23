@@ -88,6 +88,9 @@ echo -e "*/1 * * * * root /etc/init.d/mysqld start" >> /etc/crontab
 echo -e "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
 echo -e "* */23 * * * root curl https://www.evec.cc" >> /etc/crontab
 /etc/init.d/crond restart
+#
+rm -rf /vhs/kangle/www/index.html
+wget http://origin.yunsh.org/kangle/index.html -O /vhs/kangle/www/index.html
 rm -rf /home/eins
 rm -rf /root/*
 clear
