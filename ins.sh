@@ -92,7 +92,7 @@ echo -e "* */23 * * * root curl https://www.evec.cc" >> /etc/crontab
 rm -rf /vhs/kangle/www/index.html
 wget http://origin.yunsh.org/kangle/index.html -O /vhs/kangle/www/index.html
 #
-mv /vhs/kangle/nodewww/webftp/admin/control/system.ctl.php /home/system.ctl.php
+#mv /vhs/kangle/nodewww/webftp/admin/control/system.ctl.php /home/system.ctl.php
 #
 rm -rf /home/eins
 rm -rf /root/*
