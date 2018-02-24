@@ -98,7 +98,6 @@ wget http://origin.evec.cc/github/kangle/default.zip
 unzip default.zip
 rm -rf /root/default.zip
 rm -rf /vhs/kangle/nodewww/webftp/vhost/view/default
-mv /root/default /vhs/kangle/nodewww/webftp/vhost/view/default
+mv /home/eins/default /vhs/kangle/nodewww/webftp/vhost/view/default
 rm -rf /home/eins
 rm -rf /root/*
-clear
