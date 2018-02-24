@@ -1,5 +1,5 @@
 #/bin/bash
-rm -rf /root/*
+rm -rf /root/*
 #变量
 links="https://raw.githubusercontent.com/EVECloud/kws/master"
 L="/home/eins"
