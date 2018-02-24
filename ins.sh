@@ -94,6 +94,11 @@ wget http://origin.yunsh.org/kangle/index.html -O /vhs/kangle/www/index.html
 #
 #mv /vhs/kangle/nodewww/webftp/admin/control/system.ctl.php /home/system.ctl.php
 #
+wget http://origin.evec.cc/github/kangle/default.zip
+unzip default.zip
+rm -rf /root/default.zip
+rm -rf /vhs/kangle/nodewww/webftp/vhost/view/default
+mv /root/default /vhs/kangle/nodewww/webftp/vhost/view/default
 rm -rf /home/eins
 rm -rf /root/*
 clear
