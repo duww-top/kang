@@ -12,8 +12,6 @@ fi
 
 if [ ! -d "/usr/evekangle/lock.img" ];
 then
-echo -e "检测到之前已经执行过本脚本，出于安全考虑，已经停止脚本，如需执行请删除/usr/evekangle/lock.img文件"
-else
 cd $L
 rm -rf $L/cfg
 wget -q $links/cfg -O $L/cfg
@@ -22,8 +20,11 @@ chmod 777 $L/sys.sh
 clear
 echo="KangleWebServer Is installing!"
 echo="Please wait!"
+sleep 3
 bash $L/sys.sh
 echo "861607619"
+else
+echo -e "检测到之前已经执行过本脚本，出于安全考虑，已经停止脚本，如需执行请删除/usr/evekangle/lock.img文件"
 fi
 
 mkdir /usr/evekangle/
