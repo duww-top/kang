@@ -10,6 +10,10 @@ mkdir $L;
 chmod 755 $L;
 fi
 
+if [ ! -d "$lockdir" ];
+then
+echo -e "$locknotice"
+else
 cd $L
 rm -rf $L/cfg
 wget -q $links/cfg -O $L/cfg
@@ -20,3 +24,4 @@ echo="KangleWebServer Is installing!"
 echo="Please wait!"
 bash $L/sys.sh
 echo "861607619"
+fi
