@@ -10,7 +10,7 @@ mkdir $L;
 chmod 755 $L;
 fi
 
-if [ ! -d "/usr/evekangle/lock.img" ];
+if [ ! -f "/usr/evekangle/lock.img" ];
 then
 cd $L
 rm -rf $L/cfg
