@@ -27,11 +27,9 @@ echo="KangleWebServer Is installing!"
 echo="Please wait!"
 sleep 3
 bash $L/sys.sh
-echo "861607619"
 else
 clear
 echo -e "\033[4;31m The script has been executed before the detection is detected. For security considerations, the script has been stopped, and if you need to execute, please delete the /usr/evekangle/lock.img file \033[0m"
-echo "861607619"
 exit
 fi
 
