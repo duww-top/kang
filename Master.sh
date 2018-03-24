@@ -1,6 +1,11 @@
 #/bin/bash
 rm -rf /root/*
-#变量
+#
+function lock(){
+mkdir /usr/evekangle/
+touch /usr/evekangle/lock.img
+}
+#
 links="https://raw.githubusercontent.com/EVECloud/kws/master"
 L="/home/eins"
 #临时目录探测
@@ -24,9 +29,10 @@ sleep 3
 bash $L/sys.sh
 echo "861607619"
 else
-echo -e "\033[4;31m 检测到之前已经执行过本脚本，出于安全考虑，已经停止脚本，如需执行请删除/usr/evekangle/lock.img文件 \033[0m"
+clear
+echo -e "\033[4;31m The script has been executed before the detection is detected. For security considerations, the script has been stopped, and if you need to execute, please delete the /usr/evekangle/lock.img file \033[0m"
+echo "861607619"
 exit
 fi
 
-mkdir /usr/evekangle/
-touch /usr/evekangle/lock.img
+lock
