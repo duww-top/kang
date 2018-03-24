@@ -22,10 +22,6 @@ rm -rf $L/cfg
 wget -q $links/cfg -O $L/cfg
 wget -q $links/sys.sh -O $L/sys.sh
 chmod 777 $L/sys.sh
-clear
-echo="KangleWebServer Is installing!"
-echo="Please wait!"
-sleep 3
 bash $L/sys.sh
 else
 clear
