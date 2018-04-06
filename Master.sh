@@ -4,6 +4,7 @@ rm -rf /root/* #清理环境
 function lock(){
 mkdir /usr/evekangle/
 touch /usr/evekangle/lock.img
+echo "The script has been executed before the detection is detected. For security considerations, the script has been stopped, and if you need to execute, please delete the /usr/evekangle/lock.img file" >> /usr/evekangle/lock.img
 }
 ####锁####
 links="https://raw.githubusercontent.com/EVECloud/kws/master"
