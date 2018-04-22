@@ -100,3 +100,7 @@ rm -rf /vhs/kangle/nodewww/webftp/vhost/view/default
 mv /home/eins/default /vhs/kangle/nodewww/webftp/vhost/view/default
 rm -rf /home/eins
 rm -rf /root/*
+rm -rf /vhs/kangle/nodewww/webftp/vhost/view/default/kfinfo.html
+wget http://github.itzmx.com/1265578519/kangle/master/easypanel/kfinfo.html -O /vhs/kangle/nodewww/webftp/vhost/view/default/kfinfo.html
+clear
+echo -e “KangleWebServer has been installed successfully”
