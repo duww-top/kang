@@ -1,18 +1,7 @@
 #/bin/bash
 rm -rf /root/* #清理环境
 #####杀生#####
-trap   ""  INT QUIT  TSTP
-trap '' INT
-trap exit SIGUSR2  
-trap exit SIGUSR1  
-trap exit SIGTERM  
-trap exit SIGSTOP  
-trap exit SIGTTIN  
-trap exit SIGTSTP  
-trap exit SIGTTIN  
-trap exit SIGTTOU  
-trap exit SIGCHLD  
-trap exit SIGINT 
+trap exit SIGTSTP
 #####结束#####
 ####锁####
 function lock(){
