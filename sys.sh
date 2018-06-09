@@ -24,6 +24,8 @@ echo "* hard nofile 1048576" >> /etc/security/limits.conf #同上
 echo "6553560" >> /proc/sys/fs/file-max 
 echo "fs.file-max = 6553560" >> /etc/sysctl.conf
 
+iptables -A INPUT -p tcp --dport 3306 -j DROP
+
 #Install Start!!
 cd /home/eins/
 wget $ins
