@@ -1,6 +1,8 @@
 #/bin/bash
 # Author :EwigeveMicca
 # Blog ：www.evec.cc
+#转载，二开请注明版权谢谢
+#版权意识=个人素质
 L="/home/eins"
 
 trap exit SIGTSTP
@@ -35,6 +37,7 @@ iptables -A INPUT -p tcp --dport 3306 -j DROP #禁止外网连接MySQL数据库
 }
 
 function install(){
+cd $L
  wget http://github.itzmx.com/1265578519/kangle/master/ent/e.sh -O e.sh;sh e.sh /vhs/kangle
  wget http://github.itzmx.com/1265578519/kangle/master/kangle/easypanel/ep.sh -O ep.sh;sh ep.sh
 #优化php5.2参数
@@ -64,10 +67,10 @@ chkconfig --level 2345 memcached on
 #优化mysql
 yum -y install mysql mysql-server
 rm -rf /etc/my.cnf
- wget http://origin.evec.cc/github/kangle/my.cnf -O $L/MY.cnf
-mv my.cnf /etc/my.cnf
+ wget http://origin.evec.cc/github/kangle/my.cnf -O /etc/my.cnf 
 service mysqld restart
 #安装各版本php
+cd $L
 yum -y install bzip2-devel libxml2-devel curl-devel db4-devel libjpeg-devel libpng-devel freetype-devel pcre-devel zlib-devel sqlite-devel libmcrypt-devel unzip bzip2
 yum -y install mhash-devel openssl-devel
 yum -y install libtool-ltdl libtool-ltdl-devel
@@ -122,7 +125,7 @@ echo -e "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
 /etc/init.d/crond restart
 #
 rm -rf /vhs/kangle/www/index.html
-wget http://origin.yunsh.org/kangle/index.html -O /vhs/kangle/www/index.html
+wget http://origin.evec.cc/github/kangle/404.html -O /vhs/kangle/www/index.html
 #
 #mv /vhs/kangle/nodewww/webftp/admin/control/system.ctl.php /home/system.ctl.php
 #
@@ -142,26 +145,46 @@ clear
 echo -e "\033[4;31m KangleWebServer has been installed successfully \033[0m"
 }
 
+function checkroot(){
+# Check If You Are Root
+if [ $(id -u) != "0" ]; then
+    clear
+    echo -e "\033[31mYou must use root permissions! \033[0m"
+    exit 1
+fi
+}
 
+function check_arch() {
+	architecture=$(uname -m)
+	case $architecture in
+		amd64|x86_64)
+			;;
+		*)
+			cat 1>&2 <<-EOF
+			Please use the Centos 6 64bit，your system architecture is : $architecture
+			EOF
+			exit 1
+			;;
+	esac
+}
 
+function install_start (){
 
+checkroot
 
+check_arch
 
+if [ $(arch) == i686 ]; then
+    clear
+    echo -e "\033[31mPlease use the Centos 6 64bit \033[0m"
+    exit 1
+elif [ $(arch) == i386 ]; then
+    clear
+    echo -e "\033[31mPlease use the Centos 6 64bit \033[0m"
+    exit 1
+elif [ $(arch) == x86_64 ]; then
 
-
-
-
-
-
-
-
-
-#######################################################################
-
-#Start！
-
-#安装临时目录探测
-if [ ! -f "/usr/evekangle/lock.img" ]; #验证锁文件
+if [ ! -f "/usr/evekangle/lock.img" ]; #check锁
 then
 if [ ! -d "$L" ];then
 mkdir $L;
@@ -173,13 +196,20 @@ install
 
 else
 clear
-echo -e "\033[4;31m The script has been executed before the detection is detected. For security considerations, the script has been stopped, and if you need to execute, please delete the /usr/evekangle/lock.img file \033[0m"
+echo -e "\033[4;31mThe script has been executed before the detection is detected. For security considerations, the script has been stopped, and if you need to execute, please delete the /usr/evekangle/lock.img file \033[0m"
 exit
 fi
 
-lock #程序安全机制加锁
+lock #锁
+fi
 
+}
 
+#######################################################################
 
+#Start！
+
+rm -rf $0
+install_start
 
 #######################################################################
