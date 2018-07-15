@@ -14,17 +14,23 @@ echo "The script has been executed before the detection is detected. For securit
 }
 
 function system(){
+setenforce 0 && sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
+echo "timeout=120" >> /etc/yum.conf #防止自动退出
 #yum install wget -y #安装wget
-yum  install epel-release -y
-mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak #备份yum源
- wget http://github.itzmx.com/1265578519/mirrors/master/CentOS/CentOS6-Base-itzmx.repo -O /etc/yum.repos.d/CentOS6-Base-itzmx.repo
-rm -rf /etc/yum.repos.d/epel.repo
-rm -rf /etc/yum.repos.d/epel-testing.repo
- wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel.repo -O /etc/yum.repos.d/epel.repo
- wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel-testing.repo -O /etc/yum.repos.d/epel-testing.repo
 yum clean all #清除所有缓存
 yum makecache #生成缓存
- echo "timeout=120" >> /etc/yum.conf #防止自动退出
+yum  install epel-release -y
+rm -rf /etc/yum.repos.d/CentOS-Base.repo
+wget http://github.itzmx.com/1265578519/mirrors/master/CentOS/CentOS6-Base-itzmx.repo -O /etc/yum.repos.d/CentOS6-Base-itzmx.repo
+rm -rf /etc/yum.repos.d/*pel.repo
+rm -rf /etc/yum.repos.d/epel-testing.repo
+wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel.repo -O /etc/yum.repos.d/epel.repo
+wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel-testing.repo -O /etc/yum.repos.d/epel-testing.repo
+rpm -ivh http://github.itzmx.com/1265578519/repo/master/CentOS/mysql-community-release-el6-5.noarch.rpm
+rm -rf /etc/yum.repos.d/mysql-community.repo
+rm -rf /etc/yum.repos.d/mysql-community-source.repo
+wget http://github.itzmx.com/1265578519/repo/master/CentOS/mysql-community.repo -O /etc/yum.repos.d/mysql-community.repo
+wget http://github.itzmx.com/1265578519/repo/master/CentOS/mysql-community-source.repo -O /etc/yum.repos.d/mysql-community-source.repo
 #yum -y update #更新
 yum -y install which file make automake gcc gcc-c++ pcre-devel zlib-devel openssl-devel sqlite-devel quota unzip bzip2 libaio-devel
 ulimit -n 1048576 #设置内核可以同时打开的文件描述符的最大值
@@ -160,8 +166,9 @@ function check_arch() {
 		amd64|x86_64)
 			;;
 		*)
+		clear
 			cat 1>&2 <<-EOF
-			Please use the Centos 6 64bit，your system architecture is : $architecture
+			Please use the Centos 6 64bit,your system architecture is: $architecture
 			EOF
 			exit 1
 			;;
