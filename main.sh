@@ -41,6 +41,7 @@ echo -e "\033[1;36m                 6.关闭MySQL外网访问\033[0m"
 echo -e "\033[1;36m                 7.修复EP软连接漏洞\033[0m"
 echo -e "\033[1;36m                 8.清理垃圾文件释放空间\033[0m"
 echo -e "\033[1;36m                 9.重置Kangle后台登录密码\033[0m"
+echo -e "\033[1;36m                 10.修复系统DNS\033[0m"
 echo -e "\033[1;36m                 0.退出安装\033[0m"
 echo -e "\033[1;33m================================================================================\033[0m"  
 	read -p "输入选项: " number
@@ -63,6 +64,8 @@ echo -e "\033[1;33m=============================================================
 		service8
 	elif [ "$NUMBER" = "9" ] ; then
 		service9
+	elif [ "$NUMBER" = "10" ] ; then
+		service10
     else
         exit 0
     fi
@@ -141,6 +144,21 @@ function service9(){
 	nl /vhs/kangle/etc/config.xml | sed -i "s/admin user='.*' password='.*' a/admin user='$ep_admin' password='$ep_passwd' a/g" /vhs/kangle/etc/config.xml
 	service kangle restart
 	echo "Kangle管理员账户&密码已修改成功"
+}
+
+function service10(){
+	echo -e "———————————————————————————
+	\033[32m修复系统DNS\033[0m
+	1. 114DNS（国内服务器）
+	2. 谷歌DNS（国外服务器）"
+	read -p "请输入序号并回车:" YORN
+	if [ "$YORN" = "2" ]; then
+		echo -e "options timeout:1 attempts:1 rotate\nnameserver 8.8.8.8\nnameserver 8.8.4.4" >/etc/resolv.conf;
+		echo "已经成功更改为谷歌DNS"
+	else
+		echo -e "options timeout:1 attempts:1 rotate\nnameserver 114.114.114.114\nnameserver 114.114.115.115" >/etc/resolv.conf;
+		echo "已经成功更改为114DNS"
+	fi
 }
 
 install
