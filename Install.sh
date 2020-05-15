@@ -48,9 +48,9 @@ cd $L
  wget https://raw.githubusercontent.com/duww-top/kangle/master/kangle/easypanel/ep.sh -O ep.sh;sh ep.sh
 #优化php5.2参数
 rm -rf /vhs/kangle/ext/tpl_php52/php-templete.ini
- wget http://origin.evec.cc/github/kangle/php-templete.ini -O /vhs/kangle/ext/tpl_php52/php-templete.ini
+ wget https://raw.githubusercontent.com/duww-top/githubkangle/master/php-templete.ini -O /vhs/kangle/ext/tpl_php52/php-templete.ini
 rm -rf /vhs/kangle/ext/tpl_php52/etc/php-node.ini
- wget http://origin.evec.cc/github/kangle/php-node.ini -O /vhs/kangle/ext/tpl_php52/etc/php-node.ini
+ wget https://raw.githubusercontent.com/duww-top/githubkangle/master/php-node.ini -O /vhs/kangle/ext/tpl_php52/etc/php-node.ini
 #编译安装libevent
  wget https://raw.githubusercontent.com/duww-top/transmission/master/2.84/libevent-2.0.21-stable.tar.gz
 tar zxf libevent-2.0.21-stable.tar.gz
@@ -73,7 +73,7 @@ chkconfig --level 2345 memcached on
 #优化mysql
 yum -y install mysql mysql-server
 rm -rf /etc/my.cnf
- wget http://origin.evec.cc/github/kangle/my.cnf -O /etc/my.cnf 
+ wget https://raw.githubusercontent.com/duww-top/githubkangle/master/my.cnf -O /etc/my.cnf 
 service mysqld restart
 #安装各版本php
 cd $L
@@ -131,7 +131,7 @@ echo -e "*/1 * * * * root /vhs/kangle/bin/kangle" >> /etc/crontab
 /etc/init.d/crond restart
 #
 rm -rf /vhs/kangle/www/index.html
-wget http://origin.evec.cc/github/kangle/404.html -O /vhs/kangle/www/index.html
+wget https://raw.githubusercontent.com/duww-top/githubkangle/master/404.html -O /vhs/kangle/www/index.html
 #
 #mv /vhs/kangle/nodewww/webftp/admin/control/system.ctl.php /home/system.ctl.php
 #
@@ -143,9 +143,9 @@ wget http://origin.evec.cc/github/kangle/404.html -O /vhs/kangle/www/index.html
 #mv /home/eins/default /vhs/kangle/nodewww/webftp/vhost/view/default
 rm -rf /home/eins
 rm -rf /vhs/kangle/nodewww/webftp/vhost/view/default/kfinfo.html
-wget http://origin.evec.cc/github/kangle/kfinfo.html -O /vhs/kangle/nodewww/webftp/vhost/view/default/kfinfo.html
+wget https://raw.githubusercontent.com/duww-top/githubkangle/master/kfinfo.html -O /vhs/kangle/nodewww/webftp/vhost/view/default/kfinfo.html
 rm -rf /vhs/kangle/etc/config.xml
-wget http://origin.evec.cc/github/kangle/config.xml -O /vhs/kangle/etc/config.xml
+wget https://raw.githubusercontent.com/duww-top/githubkangle/master/config.xml -O /vhs/kangle/etc/config.xml
 /vhs/kangle/bin/kangle -r
 clear
 echo -e "\033[4;31m KangleWebServer has been installed successfully \033[0m"
