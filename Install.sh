@@ -21,16 +21,16 @@ yum clean all #清除所有缓存
 yum makecache #生成缓存
 yum  install epel-release -y
 rm -rf /etc/yum.repos.d/CentOS-Base.repo
-wget http://github.itzmx.com/1265578519/mirrors/master/CentOS/CentOS6-Base-itzmx.repo -O /etc/yum.repos.d/CentOS6-Base-itzmx.repo
+wget https://raw.githubusercontent.com/duww-top/mirrors/master/CentOS/CentOS6-Base-itzmx.repo -O /etc/yum.repos.d/CentOS6-Base-itzmx.repo
 rm -rf /etc/yum.repos.d/*pel.repo
 rm -rf /etc/yum.repos.d/epel-testing.repo
-wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel.repo -O /etc/yum.repos.d/epel.repo
-wget http://github.itzmx.com/1265578519/mirrors/master/EPEL/epel-testing.repo -O /etc/yum.repos.d/epel-testing.repo
-rpm -ivh http://github.itzmx.com/1265578519/repo/master/CentOS/mysql-community-release-el6-5.noarch.rpm
+wget https://raw.githubusercontent.com/duww-top/mirrors/master/EPEL/epel.repo -O /etc/yum.repos.d/epel.repo
+wget https://raw.githubusercontent.com/duww-top/mirrors/master/EPEL/epel-testing.repo -O /etc/yum.repos.d/epel-testing.repo
+rpm -ivh https://raw.githubusercontent.com/duww-top/repo/master/CentOS/mysql-community-release-el6-5.noarch.rpm
 rm -rf /etc/yum.repos.d/mysql-community.repo
 rm -rf /etc/yum.repos.d/mysql-community-source.repo
-wget http://github.itzmx.com/1265578519/repo/master/CentOS/mysql-community.repo -O /etc/yum.repos.d/mysql-community.repo
-wget http://github.itzmx.com/1265578519/repo/master/CentOS/mysql-community-source.repo -O /etc/yum.repos.d/mysql-community-source.repo
+wget https://raw.githubusercontent.com/duww-top/repo/master/CentOS/mysql-community.repo -O /etc/yum.repos.d/mysql-community.repo
+wget https://raw.githubusercontent.com/duww-top/repo/master/CentOS/mysql-community-source.repo -O /etc/yum.repos.d/mysql-community-source.repo
 #yum -y update #更新
 yum -y install which file make automake gcc gcc-c++ pcre-devel zlib-devel openssl-devel sqlite-devel quota unzip bzip2 libaio-devel
 ulimit -n 1048576 #设置内核可以同时打开的文件描述符的最大值
@@ -44,15 +44,15 @@ iptables -A INPUT -p tcp --dport 3306 -j DROP #禁止外网连接MySQL数据库
 
 function install(){
 cd $L
- wget http://github.itzmx.com/1265578519/kangle/master/ent/e.sh -O e.sh;sh e.sh /vhs/kangle
- wget http://github.itzmx.com/1265578519/kangle/master/kangle/easypanel/ep.sh -O ep.sh;sh ep.sh
+ wget https://raw.githubusercontent.com/duww-top/kangle/master/ent/e.sh -O e.sh;sh e.sh /vhs/kangle
+ wget https://raw.githubusercontent.com/duww-top/kangle/master/kangle/easypanel/ep.sh -O ep.sh;sh ep.sh
 #优化php5.2参数
 rm -rf /vhs/kangle/ext/tpl_php52/php-templete.ini
  wget http://origin.evec.cc/github/kangle/php-templete.ini -O /vhs/kangle/ext/tpl_php52/php-templete.ini
 rm -rf /vhs/kangle/ext/tpl_php52/etc/php-node.ini
  wget http://origin.evec.cc/github/kangle/php-node.ini -O /vhs/kangle/ext/tpl_php52/etc/php-node.ini
 #编译安装libevent
- wget http://github.itzmx.com/1265578519/transmission/master/2.84/libevent-2.0.21-stable.tar.gz
+ wget https://raw.githubusercontent.com/duww-top/transmission/master/2.84/libevent-2.0.21-stable.tar.gz
 tar zxf libevent-2.0.21-stable.tar.gz
 cd libevent-2.0.21-stable
 ./configure
@@ -67,7 +67,7 @@ cd $L
 yum -y install memcached php-pecl-memcache
 yum -y install php-pecl-apc
 rm -rf /etc/sysconfig/memcached
- wget http://github.itzmx.com/1265578519/kangle/master/memcached/memcached -O /etc/sysconfig/memcached
+ wget https://raw.githubusercontent.com/duww-top/kangle/master/memcached/memcached -O /etc/sysconfig/memcached
 service memcached start
 chkconfig --level 2345 memcached on
 #优化mysql
@@ -81,27 +81,27 @@ yum -y install bzip2-devel libxml2-devel curl-devel db4-devel libjpeg-devel libp
 yum -y install mhash-devel openssl-devel
 yum -y install libtool-ltdl libtool-ltdl-devel
 #
- wget -c http://github.itzmx.com/1265578519/kangle/master/php/5.2/5217/completed/tpl_php5217.tar.gz -O tpl_php5217.tar.gz
+ wget -c https://raw.githubusercontent.com/duww-top/kangle/master/php/5.2/5217/completed/tpl_php5217.tar.gz -O tpl_php5217.tar.gz
 tar xzf tpl_php5217.tar.gz
 mv tpl_php5217 /vhs/kangle/ext
 #
- wget -c http://github.itzmx.com/1265578519/kangle/master/php/5.4/5445/completed/tpl_php5445.tar.gz -O tpl_php5445.tar.gz
+ wget -c https://raw.githubusercontent.com/duww-top/kangle/master/php/5.4/5445/completed/tpl_php5445.tar.gz -O tpl_php5445.tar.gz
 tar xzf tpl_php5445.tar.gz
 mv tpl_php5445 /vhs/kangle/ext
 #
- wget -c http://github.itzmx.com/1265578519/kangle/master/php/5.5/5538/completed/tpl_php5538.tar.gz -O tpl_php5538.tar.gz
+ wget -c https://raw.githubusercontent.com/duww-top/kangle/master/php/5.5/5538/completed/tpl_php5538.tar.gz -O tpl_php5538.tar.gz
 tar xzf tpl_php5538.tar.gz
 mv tpl_php5538 /vhs/kangle/ext
 #
- wget -c http://github.itzmx.com/1265578519/kangle/master/php/7.0/7027/completed/tpl_php7027.tar.gz -O tpl_php7027.tar.gz
+ wget -c https://raw.githubusercontent.com/duww-top/kangle/master/php/7.0/7027/completed/tpl_php7027.tar.gz -O tpl_php7027.tar.gz
 tar xzf tpl_php7027.tar.gz
 mv tpl_php7027 /vhs/kangle/ext
 #
- wget -c http://github.itzmx.com/1265578519/kangle/master/php/7.1/7113/completed/tpl_php7113.tar.gz -O tpl_php7113.tar.gz
+ wget -c https://raw.githubusercontent.com/duww-top/kangle/master/php/7.1/7113/completed/tpl_php7113.tar.gz -O tpl_php7113.tar.gz
 tar xzf tpl_php7113.tar.gz
 mv tpl_php7113 /vhs/kangle/ext
 #
- wget -c http://github.itzmx.com/1265578519/kangle/master/php/7.2/721/completed/tpl_php721.tar.gz -O tpl_php721.tar.gz
+ wget -c https://raw.githubusercontent.com/duww-top/kangle/master/php/7.2/721/completed/tpl_php721.tar.gz -O tpl_php721.tar.gz
 tar xzf tpl_php721.tar.gz
 mv tpl_php721 /vhs/kangle/ext
 rm -rf /tmp/*
