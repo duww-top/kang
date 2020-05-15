@@ -168,6 +168,7 @@ function services(){
 	wget https://raw.githubusercontent.com/duww-top/kang/master/main.sh
 	cp -f main.sh /usr/bin/kanglesh
 	chmod 777 /usr/bin/kanglesh
+	echo "更新成功"
 	sh main.sh
 }
 
