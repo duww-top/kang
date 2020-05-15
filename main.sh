@@ -42,6 +42,7 @@ echo -e "\033[1;36m                 7.修复EP软连接漏洞\033[0m"
 echo -e "\033[1;36m                 8.清理垃圾文件释放空间\033[0m"
 echo -e "\033[1;36m                 9.重置Kangle后台登录密码\033[0m"
 echo -e "\033[1;36m                 10.修复系统DNS\033[0m"
+echo -e "\033[1;36m                 s.更新脚本\033[0m"
 echo -e "\033[1;36m                 0.退出安装\033[0m"
 echo -e "\033[1;33m================================================================================\033[0m"  
 	read -p "输入选项: " number
@@ -66,6 +67,8 @@ echo -e "\033[1;33m=============================================================
 		service9
 	elif [ "$NUMBER" = "10" ] ; then
 		service10
+	elif [ "$NUMBER" = "s" ] ; then
+		services
     else
         exit 0
     fi
@@ -159,6 +162,13 @@ function service10(){
 		echo -e "options timeout:1 attempts:1 rotate\nnameserver 114.114.114.114\nnameserver 114.114.115.115" >/etc/resolv.conf;
 		echo "已经成功更改为114DNS"
 	fi
+}
+
+function services(){
+	wget https://raw.githubusercontent.com/duww-top/kang/master/main.sh
+	cp -f main.sh /usr/bin/kanglesh
+	chmod 777 /usr/bin/kanglesh
+	sh main.sh
 }
 
 install
