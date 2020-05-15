@@ -39,6 +39,8 @@ echo -e "\033[1;36m                 4.关闭前台用户泛解析\033[0m"
 echo -e "\033[1;36m                 5.打开MySQL外网访问\033[0m"
 echo -e "\033[1;36m                 6.关闭MySQL外网访问\033[0m"
 echo -e "\033[1;36m                 7.修复EP软连接漏洞\033[0m"
+echo -e "\033[1;36m                 8.清理垃圾文件释放空间\033[0m"
+echo -e "\033[1;36m                 9.重置Kangle后台登录密码\033[0m"
 echo -e "\033[1;36m                 0.退出安装\033[0m"
 echo -e "\033[1;33m================================================================================\033[0m"  
 	read -p "输入选项: " number
@@ -57,6 +59,10 @@ echo -e "\033[1;33m=============================================================
 		service6
 	elif [ "$NUMBER" = "7" ] ; then
 		service7
+	elif [ "$NUMBER" = "8" ] ; then
+		service8
+	elif [ "$NUMBER" = "9" ] ; then
+		service9
     else
         exit 0
     fi
@@ -113,6 +119,29 @@ function service7() {
 	echo -e "\033[1;31m修复EP软连接漏洞成功！\033[0m"
 }
 
+function service8(){
+	echo "正在执行清理垃圾任务，执行时间由文件数量决定，请耐心等待。。。"
+	rm -rf /vhs/kangle/tmp/*
+	rm -rf /vhs/kangle/var/*.log
+	rm -rf /tmp
+	mkdir /tmp
+	chmod -R 777 /tmp
+	/vhs/kangle/bin/kangle --reboot
+
+	echo "清理垃圾文件释放空间执行完毕！"
+}
+
+function service9(){
+	clear
+	read -p "请输入Kangle管理员-新用户名：" ep_admin
+	echo -e "\033[44;37m 你输入Kangle管理员-新用户名是：$ep_admin \033[0m"
+	read -p "请输入Kangle管理员-新密码：" ep_passwd
+	echo -e "\033[44;37m 你输入Kangle管理员-新密码是：$ep_passwd \033[0m"
+	# passwdmd5=` echo -n '$ep_passwd'|md5sum|cut -d ' ' -f1 `
+	nl /vhs/kangle/etc/config.xml | sed -i "s/admin user='.*' password='.*' a/admin user='$ep_admin' password='$ep_passwd' a/g" /vhs/kangle/etc/config.xml
+	service kangle restart
+	echo "Kangle管理员账户&密码已修改成功"
+}
 
 install
 
